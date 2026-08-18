@@ -4,19 +4,9 @@
     "href": "index.html",
     "title": "R Coding: Good to Know",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2",
+    "text": "Preface",
     "crumbs": [
       "Preface"
-    ]
-  },
-  {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "1  Introduction",
-    "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
   {
@@ -44,7 +34,7 @@
     "href": "purrr.html#map-family-functions-in-the-purrr-package",
     "title": "2  Which One to Use: for or the purrr map family functions?",
     "section": "2.3 map family functions in the purrr package",
-    "text": "2.3 map family functions in the purrr package\nThe purrr package in the tidyverse provides many useful functionals. Some of the most commonly used illustrated below. These map() family functions are particularly useful when we want to apply the same operation repeatedly.\n\n2.3.1 map(): apply a function repeatedly\nSuppose we want to square the numbers from 1 to 5.\n\nlibrary(purrr)\nmap(1:5, function(x) {\n  x^2\n})\n\n[[1]]\n[1] 1\n\n[[2]]\n[1] 4\n\n[[3]]\n[1] 9\n\n[[4]]\n[1] 16\n\n[[5]]\n[1] 25\n\n\nThe important part is:\n\nfunction(x) {\n  x^2\n}\n\nfunction (x) \n{\n    x^2\n}\n\n\nThis is the function that we want to apply. The map() function takes each value in 1:5 and gives it to this function. The output is stored as a list.\nWhy does map() return a list?: A list is flexible because the result of each iteration does not necessarily have to be the same type.\nHere is another example:\n\nmap(1:3, function(x) { data.frame( number = x, square = x^2 ) })\n\n[[1]]\n  number square\n1      1      1\n\n[[2]]\n  number square\n1      2      4\n\n[[3]]\n  number square\n1      3      9\n\n\n\n\n2.3.2 map_dbl(): when the result is numeric\nIf we know that every iteration produces a single numeric value, we can use map_dbl().\n\nmap_dbl(1:5, function(x) {\n  x^2\n})\n\n[1]  1  4  9 16 25\n\n\nThe result is a numeric vector.\n\n\n2.3.3 map_dfr(): when each iteration produces a data frame\nNow the outputs from each iteration is stored in dataframe. Here, map_dfr() applies the function three times and then combines the resulting data frames by rows.\nThis is particularly useful when working with data analysis problems where every iteration generates a data frame with a single row that we want to combine into one larger data frame.\n\nmap_dfr(1:3, function(i) {\n  data.frame(\n    number = i,\n    square = i^2\n  )\n})\n\n  number square\n1      1      1\n2      2      4\n3      3      9\n\n\n\n\n2.3.4 Other map family functions\nThe map() family has different versions depending on the type of output you want:\n\nlibrary(tibble)\n\nfunctional_table &lt;- tribble(\n  ~Functional,   ~Output,                         ~Example,\n  \"map()\",       \"List\",                          \"map(1:5, square)\",\n  \"map_dbl()\",   \"Numeric / double\",              \"map_dbl(1:5, square)\",\n  \"map_int()\",   \"Integer\",                       \"map_int(1:5, as.integer)\",\n  \"map_chr()\",   \"Character\",                     \"map_chr(1:5, as.character)\",\n  \"map_lgl()\",   \"Logical (TRUE/FALSE)\",          \"map_lgl(1:5, function(x) x &gt; 3)\",\n  \"map_dfr()\",   \"Data frame (rows combined)\",    \"map_dfr(1:5, function(x) data.frame(x))\"\n)\n\nfunctional_table\n\n# A tibble: 6 × 3\n  Functional Output                     Example                                \n  &lt;chr&gt;      &lt;chr&gt;                      &lt;chr&gt;                                  \n1 map()      List                       map(1:5, square)                       \n2 map_dbl()  Numeric / double           map_dbl(1:5, square)                   \n3 map_int()  Integer                    map_int(1:5, as.integer)               \n4 map_chr()  Character                  map_chr(1:5, as.character)             \n5 map_lgl()  Logical (TRUE/FALSE)       map_lgl(1:5, function(x) x &gt; 3)        \n6 map_dfr()  Data frame (rows combined) map_dfr(1:5, function(x) data.frame(x))",
+    "text": "2.3 map family functions in the purrr package\nThe purrr package in the tidyverse provides many useful functionals. Some of the most commonly used illustrated below. These map() family functions are particularly useful when we want to apply the same operation repeatedly.\n\n2.3.1 map(): apply a function repeatedly\nSuppose we want to square the numbers from 1 to 5.\n\nlibrary(purrr)\nmap(1:5, function(x) {\n  x^2\n})\n\n[[1]]\n[1] 1\n\n[[2]]\n[1] 4\n\n[[3]]\n[1] 9\n\n[[4]]\n[1] 16\n\n[[5]]\n[1] 25\n\n\nThe important part is:\n\nfunction(x) {\n  x^2\n}\n\nfunction (x) \n{\n    x^2\n}\n\n\nThis is the function that we want to apply. The map() function takes each value in 1:5 and gives it to this function. The output is stored as a list.\nWhy does map() return a list?: A list is flexible because the result of each iteration does not necessarily have to be the same type.\nHere is another example:\n\nmap(1:3, function(x) { data.frame( number = x, square = x^2 ) })\n\n[[1]]\n  number square\n1      1      1\n\n[[2]]\n  number square\n1      2      4\n\n[[3]]\n  number square\n1      3      9\n\n\n\n\n2.3.2 map_dbl(): when the result is numeric\nIf we know that every iteration produces a single numeric value, we can use map_dbl().\n\nmap_dbl(1:5, function(x) {\n  x^2\n})\n\n[1]  1  4  9 16 25\n\n\nThe result is a numeric vector.\n\n\n2.3.3 map_dfr(): when each iteration produces a data frame\nNow the outputs from each iteration is stored in dataframe. Here, map_dfr() applies the function three times and then combines the resulting data frames by rows.\nThis is particularly useful when working with data analysis problems where every iteration generates a data frame with a single row that we want to combine into one larger data frame.\n\nmap_dfr(1:3, function(i) {\n  data.frame(\n    number = i,\n    square = i^2\n  )\n})\n\n  number square\n1      1      1\n2      2      4\n3      3      9\n\n\n\n\n2.3.4 Other map family functions\nThe map() family has different versions depending on the type of output you want:\n\n\n\n\n\n\n\n\n\n\nFunctional\nOutput\nExample\n\n\n\n\nmap()\nList\nmap(1:5, square)\n\n\nmap_dbl()\nNumeric / double\nmap_dbl(1:5, square)\n\n\nmap_int()\nInteger\nmap_int(1:5, as.integer)\n\n\nmap_chr()\nCharacter\nmap_chr(1:5, as.character)\n\n\nmap_lgl()\nLogical (TRUE/FALSE)\nmap_lgl(1:5, function(x) x &gt; 3)\n\n\nmap_dfr()\nData frame (rows combined)\nmap_dfr(1:5, function(x) data.frame(x))",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Which One to Use: for or the purrr map family functions?</span>"
     ]
@@ -77,16 +67,6 @@
     "text": "2.6 Which one to use? purrr or for\nThere isn’t a rule that says always use for or always use purrr. Both are useful; the choice depends on the task and what makes the code clearest.\nUse purrr when,\n\nThe operation is simple and repetitive\nYou want to apply a function to each element\nYou want concise, readable functional code\nYou want to control the output type\nYou are working with lists or nested data\nYou are already comfortable with tidyverse",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Which One to Use: for or the purrr map family functions?</span>"
-    ]
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
-    "crumbs": [
-      "References"
     ]
   }
 ]

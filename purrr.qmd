@@ -9,15 +9,26 @@
 #| warning: false
 #| message: false
 #| fig-cap: "What's wrong with for loops? Nothing. (AI generated image based on author prompt)"
-library(knitr)
-library(knitr)
+
 library(gridExtra)
 library(grid)
+library(png)
 
-p1 <- rasterGrob(png::readPNG("purrr.png"))
-p2 <- rasterGrob(png::readPNG("purrrremove.png"))
+p1 <- rasterGrob(
+  png::readPNG("purrr.png"),
+  interpolate = TRUE
+)
 
-grid.arrange(p1, p2, ncol = 2)
+p2 <- rasterGrob(
+  png::readPNG("purrrremove.png"),
+  interpolate = TRUE
+)
+
+grid.arrange(
+  p1, p2,
+  ncol = 2,
+  padding = unit(0, "pt")
+)
 ```
 
 When we start programming in R, one of the first things we learn is the for loop. A for loop allows us to repeat an operation multiple times.
@@ -141,6 +152,8 @@ map_dfr(1:3, function(i) {
 The map() family has different versions depending on the type of output you want:
 
 ```{r}
+#| echo: false
+#| 
 library(tibble)
 
 functional_table <- tribble(
@@ -153,7 +166,7 @@ functional_table <- tribble(
   "map_dfr()",   "Data frame (rows combined)",    "map_dfr(1:5, function(x) data.frame(x))"
 )
 
-functional_table
+knitr::kable(functional_table)
 ```
 
 
