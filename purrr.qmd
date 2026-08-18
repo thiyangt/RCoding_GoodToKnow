@@ -1,4 +1,4 @@
-# Which One to Use: for or the purrr map family functions?
+# Which One to Use: `for` or  `purrr map family functions`?
 
 ## Functionals in R: A simple introduction to map family functions in `purrr`
 
