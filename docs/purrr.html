@@ -179,18 +179,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#functionals-in-r-a-simple-introduction-to-map-family-functions-in-purrr" id="toc-functionals-in-r-a-simple-introduction-to-map-family-functions-in-purrr" class="nav-link active" data-scroll-target="#functionals-in-r-a-simple-introduction-to-map-family-functions-in-purrr"><span class="header-section-number">2.1</span> Functionals in R: A simple introduction to map family functions in <code>purrr</code></a></li>
-  <li><a href="#what-is-a-functional" id="toc-what-is-a-functional" class="nav-link" data-scroll-target="#what-is-a-functional"><span class="header-section-number">2.2</span> What is a functional?</a></li>
-  <li><a href="#map-family-functions-in-the-purrr-package" id="toc-map-family-functions-in-the-purrr-package" class="nav-link" data-scroll-target="#map-family-functions-in-the-purrr-package"><span class="header-section-number">2.3</span> <code>map</code> family functions in the purrr package</a>
+  <li><a href="#what-is-a-functional" id="toc-what-is-a-functional" class="nav-link active" data-scroll-target="#what-is-a-functional"><span class="header-section-number">2.1</span> What is a functional?</a></li>
+  <li><a href="#map-family-functions-in-the-purrr-package" id="toc-map-family-functions-in-the-purrr-package" class="nav-link" data-scroll-target="#map-family-functions-in-the-purrr-package"><span class="header-section-number">2.2</span> <code>map</code> family functions in the purrr package</a>
   <ul class="collapse">
-  <li><a href="#map-apply-a-function-repeatedly" id="toc-map-apply-a-function-repeatedly" class="nav-link" data-scroll-target="#map-apply-a-function-repeatedly"><span class="header-section-number">2.3.1</span> <code>map()</code>: apply a function repeatedly</a></li>
-  <li><a href="#map_dbl-when-the-result-is-numeric" id="toc-map_dbl-when-the-result-is-numeric" class="nav-link" data-scroll-target="#map_dbl-when-the-result-is-numeric"><span class="header-section-number">2.3.2</span> <code>map_dbl()</code>: when the result is numeric</a></li>
-  <li><a href="#map_dfr-when-each-iteration-produces-a-data-frame" id="toc-map_dfr-when-each-iteration-produces-a-data-frame" class="nav-link" data-scroll-target="#map_dfr-when-each-iteration-produces-a-data-frame"><span class="header-section-number">2.3.3</span> <code>map_dfr()</code>: when each iteration produces a data frame</a></li>
-  <li><a href="#other-map-family-functions" id="toc-other-map-family-functions" class="nav-link" data-scroll-target="#other-map-family-functions"><span class="header-section-number">2.3.4</span> Other map family functions</a></li>
+  <li><a href="#map-apply-a-function-repeatedly" id="toc-map-apply-a-function-repeatedly" class="nav-link" data-scroll-target="#map-apply-a-function-repeatedly"><span class="header-section-number">2.2.1</span> <code>map()</code>: apply a function repeatedly</a></li>
+  <li><a href="#map_dbl-when-the-result-is-numeric" id="toc-map_dbl-when-the-result-is-numeric" class="nav-link" data-scroll-target="#map_dbl-when-the-result-is-numeric"><span class="header-section-number">2.2.2</span> <code>map_dbl()</code>: when the result is numeric</a></li>
+  <li><a href="#map_dfr-when-each-iteration-produces-a-data-frame" id="toc-map_dfr-when-each-iteration-produces-a-data-frame" class="nav-link" data-scroll-target="#map_dfr-when-each-iteration-produces-a-data-frame"><span class="header-section-number">2.2.3</span> <code>map_dfr()</code>: when each iteration produces a data frame</a></li>
+  <li><a href="#other-map-family-functions" id="toc-other-map-family-functions" class="nav-link" data-scroll-target="#other-map-family-functions"><span class="header-section-number">2.2.4</span> Other map family functions</a></li>
   </ul></li>
-  <li><a href="#functionals-and-your-own-functions" id="toc-functionals-and-your-own-functions" class="nav-link" data-scroll-target="#functionals-and-your-own-functions"><span class="header-section-number">2.4</span> Functionals and your own functions</a></li>
-  <li><a href="#what-is-wrong-with-a-for-loop" id="toc-what-is-wrong-with-a-for-loop" class="nav-link" data-scroll-target="#what-is-wrong-with-a-for-loop"><span class="header-section-number">2.5</span> What is wrong with a for loop?</a></li>
-  <li><a href="#which-one-to-use-purrr-or-for" id="toc-which-one-to-use-purrr-or-for" class="nav-link" data-scroll-target="#which-one-to-use-purrr-or-for"><span class="header-section-number">2.6</span> Which one to use? purrr or for</a></li>
+  <li><a href="#functionals-and-your-own-functions" id="toc-functionals-and-your-own-functions" class="nav-link" data-scroll-target="#functionals-and-your-own-functions"><span class="header-section-number">2.3</span> Functionals and your own functions</a></li>
+  <li><a href="#what-is-wrong-with-a-for-loop" id="toc-what-is-wrong-with-a-for-loop" class="nav-link" data-scroll-target="#what-is-wrong-with-a-for-loop"><span class="header-section-number">2.4</span> What is wrong with a for loop?</a></li>
+  <li><a href="#which-one-to-use-purrr-or-for" id="toc-which-one-to-use-purrr-or-for" class="nav-link" data-scroll-target="#which-one-to-use-purrr-or-for"><span class="header-section-number">2.5</span> Which one to use? purrr or for</a></li>
   </ul>
 </nav>
     </div>
@@ -216,14 +215,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="functionals-in-r-a-simple-introduction-to-map-family-functions-in-purrr" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="functionals-in-r-a-simple-introduction-to-map-family-functions-in-purrr"><span class="header-section-number">2.1</span> Functionals in R: A simple introduction to map family functions in <code>purrr</code></h2>
+<p>(Functionals in R: A simple introduction to map family functions in <code>purrr</code>)</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="purrr_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>What’s wrong with for loops? Nothing. (AI generated image based on author prompt)</figcaption>
+<p><img src="purrr_files/figure-html/unnamed-chunk-1-1.png" style="height:100.0%" width="672" class="figure-img"></p>
+<figcaption>Figure 1: Chapter cover - purrr package map family functions or for loops?. (AI generated image based on author prompt)</figcaption>
 </figure>
 </div>
 </div>
@@ -242,9 +240,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>There is another way to express the same idea using <strong>functionals</strong>.</p>
-</section>
-<section id="what-is-a-functional" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="what-is-a-functional"><span class="header-section-number">2.2</span> What is a functional?</h2>
+<section id="what-is-a-functional" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="what-is-a-functional"><span class="header-section-number">2.1</span> What is a functional?</h2>
 <p>A functional is a function that takes another function as an input and uses that function to perform an operation.</p>
 <p>Here is an example code to illustrate the idea of functionals.</p>
 <div class="cell">
@@ -282,11 +279,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="map-family-functions-in-the-purrr-package" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="map-family-functions-in-the-purrr-package"><span class="header-section-number">2.3</span> <code>map</code> family functions in the purrr package</h2>
+<section id="map-family-functions-in-the-purrr-package" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="map-family-functions-in-the-purrr-package"><span class="header-section-number">2.2</span> <code>map</code> family functions in the purrr package</h2>
 <p>The purrr package in the tidyverse provides many useful functionals. Some of the most commonly used illustrated below. These map() family functions are particularly useful when we want to apply the same operation repeatedly.</p>
-<section id="map-apply-a-function-repeatedly" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="map-apply-a-function-repeatedly"><span class="header-section-number">2.3.1</span> <code>map()</code>: apply a function repeatedly</h3>
+<section id="map-apply-a-function-repeatedly" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="map-apply-a-function-repeatedly"><span class="header-section-number">2.2.1</span> <code>map()</code>: apply a function repeatedly</h3>
 <p>Suppose we want to square the numbers from 1 to 5.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
@@ -342,8 +339,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="map_dbl-when-the-result-is-numeric" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="map_dbl-when-the-result-is-numeric"><span class="header-section-number">2.3.2</span> <code>map_dbl()</code>: when the result is numeric</h3>
+<section id="map_dbl-when-the-result-is-numeric" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="map_dbl-when-the-result-is-numeric"><span class="header-section-number">2.2.2</span> <code>map_dbl()</code>: when the result is numeric</h3>
 <p>If we know that every iteration produces a single numeric value, we can use map_dbl().</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="cf">function</span>(x) {</span>
@@ -355,8 +352,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The result is a numeric vector.</p>
 </section>
-<section id="map_dfr-when-each-iteration-produces-a-data-frame" class="level3" data-number="2.3.3">
-<h3 data-number="2.3.3" class="anchored" data-anchor-id="map_dfr-when-each-iteration-produces-a-data-frame"><span class="header-section-number">2.3.3</span> <code>map_dfr()</code>: when each iteration produces a data frame</h3>
+<section id="map_dfr-when-each-iteration-produces-a-data-frame" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="map_dfr-when-each-iteration-produces-a-data-frame"><span class="header-section-number">2.2.3</span> <code>map_dfr()</code>: when each iteration produces a data frame</h3>
 <p>Now the outputs from each iteration is stored in dataframe. Here, <code>map_dfr()</code> applies the function three times and then combines the resulting data frames by rows.</p>
 <p>This is particularly useful when working with data analysis problems where every iteration generates a data frame with a single row that we want to combine into one larger data frame.</p>
 <div class="cell">
@@ -374,8 +371,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="other-map-family-functions" class="level3" data-number="2.3.4">
-<h3 data-number="2.3.4" class="anchored" data-anchor-id="other-map-family-functions"><span class="header-section-number">2.3.4</span> Other map family functions</h3>
+<section id="other-map-family-functions" class="level3" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="other-map-family-functions"><span class="header-section-number">2.2.4</span> Other map family functions</h3>
 <p>The map() family has different versions depending on the type of output you want:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -429,8 +426,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="functionals-and-your-own-functions" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="functionals-and-your-own-functions"><span class="header-section-number">2.4</span> Functionals and your own functions</h2>
+<section id="functionals-and-your-own-functions" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="functionals-and-your-own-functions"><span class="header-section-number">2.3</span> Functionals and your own functions</h2>
 <p>We can define our own function and pass into map family functions as well.</p>
 <p>For example,</p>
 <div class="cell">
@@ -446,8 +443,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="what-is-wrong-with-a-for-loop" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="what-is-wrong-with-a-for-loop"><span class="header-section-number">2.5</span> What is wrong with a for loop?</h2>
+<section id="what-is-wrong-with-a-for-loop" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="what-is-wrong-with-a-for-loop"><span class="header-section-number">2.4</span> What is wrong with a for loop?</h2>
 <p>There is nothing wrong with a <code>for</code> loop. In fact, a for loop and a functional are often two different ways of expressing the same computational idea. Functionals are not simply a shorter replacement for <code>for</code> loops.</p>
 <p>With a <code>for</code> loop, we tell R how to repeat an operation.</p>
 <p>With a <code>purrr</code> functional, we tell R what operation we want, and purrr handles the repetition.</p>
@@ -473,8 +470,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The purrr version focuses on the operation. It says, “square each number”. While <code>map_dbl()</code> takes care of the iteration.</p>
 </section>
-<section id="which-one-to-use-purrr-or-for" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="which-one-to-use-purrr-or-for"><span class="header-section-number">2.6</span> Which one to use? purrr or for</h2>
+<section id="which-one-to-use-purrr-or-for" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="which-one-to-use-purrr-or-for"><span class="header-section-number">2.5</span> Which one to use? purrr or for</h2>
 <p>There isn’t a rule that says always use for or always use purrr. Both are useful; the choice depends on the task and what makes the code clearest.</p>
 <p>Use <code>purrr</code> when,</p>
 <ul>

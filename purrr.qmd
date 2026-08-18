@@ -1,6 +1,6 @@
 # Which One to Use: `for` or  `purrr map family functions`?
 
-## Functionals in R: A simple introduction to map family functions in `purrr`
+(Functionals in R: A simple introduction to map family functions in `purrr`)
 
 
 
@@ -8,7 +8,8 @@
 #| echo: false
 #| warning: false
 #| message: false
-#| fig-cap: "What's wrong with for loops? Nothing. (AI generated image based on author prompt)"
+#| out-height: "100%"
+#| fig-cap: "Figure 1: Chapter cover - purrr package map family functions or for loops?. (AI generated image based on author prompt)"
 
 library(gridExtra)
 library(grid)
